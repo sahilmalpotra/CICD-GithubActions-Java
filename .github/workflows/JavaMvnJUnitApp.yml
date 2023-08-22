@@ -44,3 +44,9 @@ jobs:
         run: |
           cd target/classes
           java com.mycompany.app.Calculator
+      - name : Deploy  to S3
+        uses : jakejarvis/s3-sync-action@master
+        with :
+          args: --acl public-read
+          env:
+            AWS_S3_BUCKET_URL:
